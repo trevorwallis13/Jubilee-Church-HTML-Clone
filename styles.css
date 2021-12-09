@@ -1,10 +1,10 @@
-@import url('http://fonts.googleapis.com/css?family=Kavoon');
+@import url('http://fonts.googleapis.com/css?family=Playfair+Display');
 
 * {
     padding: 0;
     margin: 0;
     line-height: 1.5em;
-    /* box-sizing: border-box; */
+    box-sizing: border-box;
 }
 
 body {
@@ -12,11 +12,24 @@ body {
     font-size: 1.1rem;
     font-weight: 100;
     background-color: whitesmoke;
-    color: #121222
+    color: #222;
 }
 
 h2 {
     font-size: 2.5rem;
+}
+
+h3 {
+    font-family: 'Playfair Display';
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: 100;
+    padding: .5rem 0;
+} 
+
+p {
+    padding: .5rem;
+    font-weight: 100;
 }
 
 .container {
@@ -39,8 +52,8 @@ h2 {
     background-color: rgba(209, 87, 76, .9);
 }
 
-.header-right a.button {
-    max-height: 1.5em;
+.header-right .button {
+    max-height: 3em;
     padding: .7em 2em;
 }
 
@@ -163,3 +176,133 @@ h2 {
    flex-grow: 1;
    margin: 0;
 }
+
+#announcement {
+    background-image: url(img/heading-background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding: 5% 10%;
+    text-align: left;
+    color: whitesmoke;
+}
+
+#announcement h2 {
+    width: 66%;
+    font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+
+}
+
+@media (max-width: 1029px) {
+     #announcement {
+         text-align: center;
+     }
+     #announcement h2 {
+         width: 90%;
+     }
+}
+
+#resource {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 5rem 5rem;
+}
+
+#resource img,
+.resource-info {
+    flex: 1;
+    max-width: 500px;
+    min-width: 400px;
+    margin: 1em;
+}
+
+#resource img {
+    height: auto;
+}
+
+#resource img:hover {
+    transform: scale(105%);
+    transition-duration: 500ms;
+}
+
+.resource-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: justify;
+}
+
+.resource-info a {
+    text-align: center;
+    margin: 1em 0;
+}
+
+#youtube-links {
+    background-color:  rgb(237,232,228);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.intro {
+    margin: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 35em;
+}
+
+.video-embeds {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.video-embeds iframe {
+    max-width: 100%;
+}
+.video-embeds iframe{
+    margin: 1em;
+}
+
+.enter-site {
+    display: flex;
+    justify-content: center;
+    width: 32em;
+    max-width: 90%;
+    margin: 3em 0 0 0;
+}
+
+.enter-site .button {
+    flex-grow: 1;
+}
+
+#contact-info {
+    margin: 3em 0 0 0;
+}
+
+#contact-info p {
+    padding: 0;
+}
+
+.social {
+    margin: 1em 0;
+}
+
+.social a {
+    color: #333;
+    font-size: 2em;
+    padding: 1em .2em;
+}
+
+#main-footer {
+    text-align: center;
+    background-color: #333;
+    color: whitesmoke;
+    padding: 1em 0;
+}
+
+

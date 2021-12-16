@@ -7,6 +7,8 @@
     box-sizing: border-box;
 }
 
+/* Baseline styling for fonts, body, etc. */
+
 body {
     font-family: Futura, Arial, sans-serif;
     font-size: 1.1rem;
@@ -36,6 +38,8 @@ p {
     margin: 0 20%;
 }
 
+/* Buttons */
+
 .button {
     color: whitesmoke;
     background-color: rgb(209,86,76);
@@ -57,6 +61,8 @@ p {
     padding: .7em 2em;
 }
 
+/* header and hero */
+
 .hero-section {
     background-image: url(img/heading-background.png);
     background-position: center;
@@ -65,53 +71,176 @@ p {
     flex-direction: column;
 }
 
-#main-header {
-    padding: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.header-logo {
-    width: 15em;
-    max-width: 100%;
-    height: auto;
-    filter: brightness(10%) invert(1);
-}
-
-.header-right {
-    display: flex;
-    max-width: 80%;
-    align-content: center;
-    justify-content: space-between;
-}
-
-.header-nav {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row-reverse;
-    align-content: center;
-    padding: 0 10px;
-}
-
-.header-nav a {
-    text-decoration: none;
-}
-
-.header-nav li {
-    color: whitesmoke;
-    padding: 5px 10px;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: .1em;
-}
-
 #hero-image {
     height: relative;
     width: 40%;
     margin: 70px auto;
 }
+
+/* mobile nav */
+
+#main-header {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    gap: 2em;
+}
+
+.header-right {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    width: 100%;
+    height: 85vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: whitesmoke;
+    padding: 1.5em 0 2.5em 0;
+    transform: scale(1, 0);
+    transform-origin: top;
+    transition: transform 500ms ease-in-out;
+}
+
+.header-nav {
+    list-style: none;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.header-nav li {
+    padding: .5em;
+}
+
+.header-nav a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #222;
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+}
+
+.header-logo {
+    width: auto;
+    max-width: 100%;
+    max-height: 3em;
+    filter: brightness(10%) invert(1);
+}
+
+.header-logo-link {
+    display: inline-block;
+    max-width: 100%;
+    max-height: 3em;
+}
+
+.open-nav {
+    display: none;
+}
+
+.open-nav-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 2em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.open-nav-button span, 
+.open-nav-button span::before, 
+.open-nav-button span::after {
+    height: 3px;
+    width: 1.75em;
+    border-radius: 3px;
+    color: black;
+    background-color: whitesmoke;
+    position: relative;
+}
+
+.open-nav-button span::before, 
+.open-nav-button span::after {
+    content: ' ';
+    position: absolute;
+}
+
+.open-nav-button span::before {
+    bottom: 8px;
+    right: 0;
+}
+
+.open-nav-button span::after {
+    top: 8px;
+    right: 0;
+}
+
+.open-nav:checked ~ .header-right {
+    transform: scale(1, 1);
+
+}
+
+.open-nav:checked ~ .header-right a {
+    opacity: 1;
+    transition: opacity 200ms ease-in-out 200ms;
+
+}
+
+/* desktop nav */
+
+@media (min-width: 750px) {
+    .open-nav-button {
+        display: none
+    }
+
+    #main-header {
+        padding: 30px;
+        margin: 0 auto;
+        max-width: 1500px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
+
+    .header-logo,
+    .header-logo-link {
+        max-height: 5em;
+    }
+
+    .header-right {
+        position: static;
+        flex-direction: row;
+        justify-content: right;
+        height: 100%;
+        background-color: transparent;
+        transform: scale(1, 1);
+        flex-basis: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .header-nav {
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+        align-content: center;
+        margin: 0;
+        width: 100%;
+    }
+
+    .header-nav a {
+        opacity: 1;
+        color: whitesmoke;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
 
 .invite {
     background-color: rgb(237,232,228);
